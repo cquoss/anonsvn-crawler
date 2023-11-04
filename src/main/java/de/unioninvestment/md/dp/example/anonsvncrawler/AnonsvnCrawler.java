@@ -5,17 +5,13 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.net.InetSocketAddress;
-import java.net.Proxy;
 import java.net.ProxySelector;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.OpenOption;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
@@ -99,7 +95,7 @@ public class AnonsvnCrawler {
         final InetSocketAddress proxyAddress;
         if (System.getProperty("useProxy", "false").equals("true")) {
             proxyAddress = new InetSocketAddress("localhost", 8080);
-;        } else {
+        } else {
             proxyAddress = null;
         }
         final HttpClient client = HttpClient
